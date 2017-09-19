@@ -1,0 +1,32 @@
+package com.example;
+
+import java.net.URI;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.model.Order;
+import com.example.repository.OrderRepository;
+
+import groovyjarjarantlr.collections.List;
+
+@RestController
+public class OrderLBAPI {
+
+	@Autowired
+	private LoadBalancerClient loadBalancerClient;
+
+	@RequestMapping(value = "api/order")
+	public ResponseEntity<Order> add(Order manufacturer) {
+		ServiceInstance instance = loadBalancerClient.choose("order-microservice");
+		return (new RestTemplate()).getForObject(new URI(instance.getUri().toString().concat("/api/order")), List.class);
+		
+	}
+
+}

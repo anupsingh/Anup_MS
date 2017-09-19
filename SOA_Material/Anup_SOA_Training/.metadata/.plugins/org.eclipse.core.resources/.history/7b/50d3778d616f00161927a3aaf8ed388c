@@ -1,0 +1,22 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.dao.OrderRepository;
+import com.example.model.Order;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	private OrderRepository orderRepository;
+	
+	@Override
+	@HystrixCommand
+	public List<Order> findAll() {
+		return orderRepository.findAll();
+	}
+
+}

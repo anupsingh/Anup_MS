@@ -1,0 +1,10 @@
+---
+spring:
+  application:
+    name: msouathserver-microservice
+  cloud:
+    config:
+      uri: http://localhost:8080
+#selects any available port if neither
+server:
+  port: 8009

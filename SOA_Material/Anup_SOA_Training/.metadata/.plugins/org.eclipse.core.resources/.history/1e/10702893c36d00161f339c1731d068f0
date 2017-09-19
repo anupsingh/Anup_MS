@@ -1,0 +1,15 @@
+package com.example;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@SpringBootApplication
+public class SpringBootApp1Application {
+
+	@RequestMapping(value="/",produces=MediaType.TEXT_PLAIN)
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootApp1Application.class, args);
+	}
+}

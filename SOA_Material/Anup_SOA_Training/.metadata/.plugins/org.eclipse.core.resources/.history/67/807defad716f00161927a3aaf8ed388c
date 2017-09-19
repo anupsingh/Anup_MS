@@ -1,0 +1,9 @@
+zuul:
+  #prefix: /services
+  routes:
+   order_servcie:
+    path: /orderservice/**
+    serviceId: order-microservice
+   manufacturer_service:
+    path: /mfrsservice/**
+    serviceId: manufacturer-microservice

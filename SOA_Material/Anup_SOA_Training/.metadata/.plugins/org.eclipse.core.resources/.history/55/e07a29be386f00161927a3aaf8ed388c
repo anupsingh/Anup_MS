@@ -1,0 +1,13 @@
+package com.example;
+
+import java.util.List;
+import org.springframework.cloud.netflix.feign.FeignClient;
+import com.example.model.Order;
+
+@FeignClient("order-microservice")
+public interface OrderClient {
+
+	
+	List<Order> findAll();
+
+}

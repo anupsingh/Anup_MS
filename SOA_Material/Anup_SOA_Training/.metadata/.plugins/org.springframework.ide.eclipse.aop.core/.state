@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="consumerrms"/>
+<aop-project name="ordermscircuitbreaker"/>
+<aop-project name="SpringBootApp1"/>
+<aop-project name="manufacturerms"/>
+<aop-project name="springsloudconfigserver"/>
+<aop-project name="feignclient"/>
+<aop-project name="msapigateway"/>
+<aop-project name="orderms"/>
+<aop-project name="orderlb"/>
+</aop-reference-model>
